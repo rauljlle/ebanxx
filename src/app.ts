@@ -7,4 +7,9 @@ router.get('/', (req: Request, res: Response) => {
     res.send(appService.getRoot());
 });
 
+router.post('/reset', (req: Request, res: Response) => {
+    appService.postReset();
+    res.sendStatus(200);
+});
+
 export default router;
