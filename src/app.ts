@@ -1,15 +1,17 @@
-import express, { Request, Response } from 'express';
-import appService from './services/appService';
+import express from 'express';
+import bodyParser from 'body-parser';
+import appController from './controllers/app';
+import dotenv from 'dotenv';
 
-const router = express.Router();
+dotenv.config();
 
-router.get('/', (req: Request, res: Response) => {
-    res.send(appService.getRoot());
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+
+app.use('/', appController);
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
-
-router.post('/reset', (req: Request, res: Response) => {
-    appService.postReset();
-    res.sendStatus(200);
-});
-
-export default router;
