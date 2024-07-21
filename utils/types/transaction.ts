@@ -1,1 +1,0 @@
-export type transaction = 'deposit' | 'withdraw' | 'transfer';
