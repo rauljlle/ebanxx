@@ -1,6 +1,6 @@
 import { Account } from "../account/entity";
 
-class DB {
+export class DB {
 
     private data: Account[];
     static #instance: DB;
