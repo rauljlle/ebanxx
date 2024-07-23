@@ -12,7 +12,7 @@ export class DB {
     insert(account: Account){
         this.data.push(account)
     }
-
+ 
     findById(id: string): Account | undefined {
         return this.data.find(account => account.getId() === id);
     }
