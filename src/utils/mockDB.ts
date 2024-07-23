@@ -1,10 +1,12 @@
-import { IAccount } from "../account/interface";
+import { Account } from "../account/entity";
 
 class DB {
 
-    data: IAccount[];
+    data: Account[];
 
     constructor(){
         this.data = [];
     }
+
+
 }
