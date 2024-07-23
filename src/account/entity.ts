@@ -4,12 +4,16 @@ export class Account {
 
     #id: string;
     #balance: number;
-    #db = DB.instance;
+    static #db = DB.instance;
 
     constructor(id: string, balance: number){
         this.#id = id;
         this.#balance = balance;
-        this.#db.insert(this);
+        Account.#db.insert(this);
+    }
+
+    public static getById(id: string): Account | undefined {
+        return Account.#db.findById(id);
     }
 
     getId(): string {
@@ -29,7 +33,7 @@ export class Account {
     }
 
     transfer(destinationId: string, amount:number){
-        let destination = this.#db.findById(destinationId);
+        let destination = Account.getById(destinationId);
 
         // If it doesnt exist, creates it with an amount of zero
         // so the rest of the code doesn't have to change
