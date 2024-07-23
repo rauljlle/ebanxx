@@ -1,20 +1,20 @@
-import { accountInfo } from '../utils/account-info';
+import { IAccount } from '../utils/interfaces/account-info';
 import { IEventRequest } from '../utils/interfaces/event-request';
 import { IEventResponse } from '../utils/interfaces/event-response';
 import { DB } from '../utils/mockDB';
 import { Account } from './entity';
 
 interface IDeposit {
-    destination: accountInfo;
+    destination: IAccount;
 }
 
 interface IWithdraw {
-    origin: accountInfo;
+    origin: IAccount;
 }
 
 interface ITransfer {
-    destination: accountInfo;
-    origin: accountInfo;
+    destination: IAccount;
+    origin: IAccount;
 }
 
 class AccountService {

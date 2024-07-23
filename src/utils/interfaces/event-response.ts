@@ -1,6 +1,6 @@
-import { accountInfo } from "../account-info";
+import { IAccount } from "./account-info";
 
 export interface IEventResponse {
-    origin?: accountInfo,
-    destination?: accountInfo
+    origin?: IAccount,
+    destination?: IAccount
 }

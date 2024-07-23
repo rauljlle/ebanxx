@@ -1,4 +1,4 @@
-export type accountInfo = {
+export interface IAccount {
     id: string,
     balance: number
 }

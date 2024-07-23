@@ -1,4 +1,4 @@
-import { accountInfo } from "../utils/account-info";
+import { IAccount } from "../utils/interfaces/account-info";
 import { DB } from "../utils/mockDB";
 
 export class Account {
@@ -21,7 +21,7 @@ export class Account {
         this.#balance -= amount;
     }
 
-    getAccount(): accountInfo{
+    getAccount(): IAccount{
         return {
             id: this.#id,
             balance: this.#balance
