@@ -1,8 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import eventRoutes from './controllers/eventController';
-import balanceRoutes from './controllers/balanceController';
-import appRoutes from './controllers/appController';
+import eventRoutes from './account/controllers/eventController';
+import balanceRoutes from './account/controllers/balanceController';
+import appRoutes from './app/appController';
 
 const app = express();
 const port = 3000;
