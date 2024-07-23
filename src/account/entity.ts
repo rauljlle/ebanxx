@@ -1,21 +1,26 @@
-import { IAccount } from "./interface";
+export class Account {
 
-class Account implements IAccount{
-
-    id: string;
-    balance: number;
+    private id: string;
+    private balance: number;
 
     constructor(id: string, balance: number){
         this.id = id;
         this.balance = balance;
     }
 
+    getId(): string {
+        return this.id;
+    }
 
-    add(amount: number){
+    getBalance(): number {
+        return this.balance;
+    }
+
+    deposit(amount: number){
         this.balance += amount;
     }
 
-    remove(amount: number){
+    withdraw(amount: number){
         this.balance -= amount;
     }
 
