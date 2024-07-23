@@ -1,15 +1,16 @@
+import { accountInfo } from "../utils/account-info";
 import { DB } from "../utils/mockDB";
 
 export class Account {
 
     #id: string;
     #balance: number;
-    #db = DB.instance;
+    private db = DB.instance;
 
     constructor(id: string, balance: number){
         this.#id = id;
         this.#balance = balance;
-        this.#db.insert(this);
+        this.db.insert(this);
     }
 
     addBalance(amount: number){
@@ -18,6 +19,13 @@ export class Account {
 
     removeBalance(amount: number){
         this.#balance -= amount;
+    }
+
+    getAccount(): accountInfo{
+        return {
+            id: this.#id,
+            balance: this.#balance
+        }
     }
 
     getId(): string {
