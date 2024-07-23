@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
-import eventService from '../services/eventService';
+import accountService from '../account/service'
 
 const router = express.Router();
 
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const eventResponse = await eventService.post(req.body);
+        const eventResponse = accountService.eventHandler(req.body);
         res.status(201).json(eventResponse);
     } catch (error) {
         res.status(404).send('0');

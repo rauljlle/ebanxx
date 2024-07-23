@@ -8,7 +8,8 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.post('/reset', async (req: Request, res: Response) => {
-    await appService.postReset(res);
+    appService.postReset();
+    res.sendStatus(200);
 });
 
 export default router;
