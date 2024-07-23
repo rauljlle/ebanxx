@@ -3,8 +3,9 @@ import { Account } from "../account/entity";
 class DB {
 
     private data: Account[];
+    static #instance: DB;
 
-    constructor(){
+    private constructor(){
         this.data = [];
     }
 
@@ -19,4 +20,14 @@ class DB {
     reset(){
         this.data = []
     }
+
+
+    //Implements singleton pattern
+    public static get instance(): DB {
+        if (!DB.#instance) {
+            DB.#instance = new DB();
+        }
+        return DB.#instance;
+    }
+
 }
