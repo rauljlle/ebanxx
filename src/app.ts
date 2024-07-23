@@ -1,12 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import eventRoutes from './controllers/event';
-import balanceRoutes from './controllers/balance';
-import appRoutes from './controllers/app';
-import dotenv from 'dotenv';
-
-// Load environment variables from .env file
-dotenv.config();
+import eventRoutes from './controllers/eventController';
+import balanceRoutes from './controllers/balanceController';
+import appRoutes from './controllers/appController';
 
 const app = express();
 const port = 3000;
