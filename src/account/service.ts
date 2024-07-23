@@ -33,7 +33,7 @@ class AccountService {
         destination.addBalance(amount);
 
         return {
-            destination: destination.getAccount()
+            destination: destination.DTO()
         }
     }
 
@@ -45,7 +45,7 @@ class AccountService {
         origin.removeBalance(amount);
 
         return {
-            origin: origin.getAccount()
+            origin: origin.DTO()
         }
     }
 

@@ -21,7 +21,7 @@ export class Account {
         this.#balance -= amount;
     }
 
-    getAccount(): IAccount{
+    DTO(): IAccount{
         return {
             id: this.#id,
             balance: this.#balance
