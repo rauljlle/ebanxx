@@ -12,6 +12,10 @@ class DB {
         this.data.push(account)
     }
 
+    findById(id: string): Account | undefined {
+        return this.data.find(account => account.getId() === id);
+    }
+
     reset(){
         this.data = []
     }
