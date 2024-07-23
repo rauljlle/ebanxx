@@ -16,31 +16,31 @@ export class Account {
         return Account.#db.findById(id);
     }
 
-    getId(): string {
-        return this.#id;
-    }
-
-    getBalance(): number {
-        return this.#balance;
-    }
-
-    deposit(amount: number){
+    private addBalance(amount: number){
         this.#balance += amount;
     }
 
-    withdraw(amount: number){
+    private removeBalance(amount: number){
         this.#balance -= amount;
     }
 
-    transfer(destinationId: string, amount:number){
+    private transferBalance(destinationId: string, amount:number){
         let destination = Account.getById(destinationId);
 
         // If it doesnt exist, creates it with an amount of zero
         // so the rest of the code doesn't have to change
         if (!destination) destination = new Account(destinationId, 0);
 
-        this.withdraw(amount);
-        destination.deposit(amount);
+        this.addBalance(amount);
+        destination.removeBalance(amount);
+    }
+
+    getId(): string {
+        return this.#id;
+    }
+
+    getBalance(): number {
+        return this.#balance;
     }
 
 }
